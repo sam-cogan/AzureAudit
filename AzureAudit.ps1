@@ -20,7 +20,7 @@ Describe "Virtual Machine Tests" {
 
         foreach ($vm in $vms) {
 
-            $avExtension = Get-AzureRmVMExtension -ResourceGroupName $ResourceGroupName -VMName $vms[0].name -Name IaaSAntimalware
+            $avExtension = Get-AzureRmVMExtension -ResourceGroupName $ResourceGroupName -VMName $vm.name -Name IaaSAntimalware
             $publicSettings = ConvertFrom-Json $avExtension.PublicSettings
 
             It "$($vm.name) Should Have Micrsoft Antimalware Extension Installed" {
